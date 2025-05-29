@@ -16,7 +16,7 @@ const Login = () => {
       email: "",
       password: "",
     });
-    const [authUser, setAuthUser] = useState(null);
+    
 
     const validateForm=()=>{
        

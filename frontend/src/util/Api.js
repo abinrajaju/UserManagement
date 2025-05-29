@@ -22,9 +22,12 @@ const uploadProfilePic =async(file)=>{
         },
       });
   
-      console.log("Upload successful:", res.data);
-     
+        
       toast.success("Update successful");
+      console.log(res.data.updatedUser);
+      
+      return res.data.updatedUser
+   
     } catch (error) {
       
       console.error("Upload error:", error);
@@ -36,21 +39,6 @@ const uploadProfilePic =async(file)=>{
 
 
 
-const signupApi=async(formData,setLode)=>{
-    
-    try {
-        setLode(true);
-        const res = await axiosInstance.post("/auth/signup", formData);
-        dispatch(signup(res));
-        toast.success("Logind succesfully");
-      } catch (error) {
-        console.log(error);
-        toast.error(error.response.data.message);
-        console.error(error);
-      } finally {
-        setLode(false);
-      }
-}
 
 
 const signupUser = async (formData) => {
@@ -79,7 +67,7 @@ const signupUser = async (formData) => {
   };
 
 
-  deleteUser=async()=>{
+const  deleteUser=async(id)=>{
 
 try {
     const res = await axiosInstance.post("/auth/delete",{id});

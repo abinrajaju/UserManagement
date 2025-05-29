@@ -16,7 +16,7 @@ const AdminSlice=createSlice({
          },
          searchdata:(state,action)=>{
             state.search=action.payload
-            console.log(state.search,'ssssssssss');
+            
             
          }
          

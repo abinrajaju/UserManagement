@@ -46,11 +46,14 @@ const Admin = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
+          
           const updatedRes = await deleteUser(id);
           dispatch(uplode(updatedRes.data.users));
           toast.success("Your file has been deleted");
         } catch (error) {
           toast.error(error.response?.data?.message);
+          console.log(error);
+          
         }
       }
     });
